@@ -1,0 +1,102 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
+    height: 800px;
+}
+.form{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.form input{
+    margin: 10px;
+    width: 500px;
+}
+.form label{
+    margin: 15px;
+    text-align: end;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.btnSubmit{
+    background-color:  #29b881 ;
+    box-shadow: 10px 5px 5px #0D1225;
+    width: 200px;
+    color: aliceblue;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 30px;
+    margin: 10px 200px;
+    font-size: 1.5rem;
+}
+.btnSubmit:hover{
+    cursor: pointer;
+    background-color:#2f9a70;
+}
+
+.inpName{
+    padding:10px;
+    font-size: 15px;
+    border: 2px solid;
+    border-radius: 10px;
+}
+.containerRange input[type="range"]{
+    -webkit-appearance: none;
+    width: 500px;
+    height: 20px;
+    border-radius: 15px;
+    background-color: #b6e8d5;
+    outline: none;
+    overflow: hidden;
+    cursor: pointer;
+}
+.containerRange input[type="range"]::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 15px;
+    background-color: #0cab6e;
+    border-radius: 10px;
+    box-shadow: -350px 0px 0px 340px #0cab6e;
+}
+.containerRange{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+.containerRange span{
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.containerSelects{
+    margin: 10px;
+    width: 550px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 5px;
+}
+.containerSelects button{
+    padding: 5px;
+    border: 2px solid;
+    border-radius: 20px;
+    transition: 0.4s;
+    font-size: 15px;
+}
+.containerSelects button:hover{
+    cursor: pointer;
+    background-color: #0cab6e;
+}
+.typeSelected{
+    background-color:#0cab6e ;
+}
+.notSelected{
+    background-color:#b9ecd9 
+}

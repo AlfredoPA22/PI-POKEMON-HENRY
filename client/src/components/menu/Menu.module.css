@@ -1,0 +1,21 @@
+.filter select{
+    background-color:  #29b881 ;
+    box-shadow: 10px 5px 5px #0D1225;
+    color: aliceblue;
+    font-size: 1rem;
+    padding: 5px 30px;
+    border: none;
+    border-radius: 1rem;
+}
+.filter select:hover{
+    cursor: pointer;
+    background-color:#2f9a70;
+}
+.filter{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+

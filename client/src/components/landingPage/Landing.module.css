@@ -1,0 +1,11 @@
+.container{
+    background-color:  #e4ac33 ;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 3fr 1fr ;
+    align-items: center;
+}
+.button{
+    text-decoration: none;
+    display: flex;
+}
