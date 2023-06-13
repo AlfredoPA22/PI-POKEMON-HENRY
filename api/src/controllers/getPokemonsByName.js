@@ -1,4 +1,5 @@
 const axios=require('axios')
+const { Op } = require('sequelize');
 const {Pokemon,Type,pokemonType}=require('../db')
 
 const getPokemonsByName= async(name)=>{
@@ -17,7 +18,9 @@ const getPokemonsByName= async(name)=>{
               },
             ],
             where:{
-                Nombre:name
+                Nombre:{
+                    [Op.iLike]: `%${name}%`
+                }
             }
         });
         if(pokemons.length > 0){

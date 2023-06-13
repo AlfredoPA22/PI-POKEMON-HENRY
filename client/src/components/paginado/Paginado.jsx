@@ -1,12 +1,14 @@
 import style from './Paginado.module.css'
-const Paginado=({nroPublics,totalPosts,changePage,currentPage})=>{
+const Paginado=({nextPage,previusPage,nroPublics,totalPosts,changePage,currentPage})=>{
     const pageNumbers=[];
     for(let i=1;i <= Math.ceil(totalPosts / nroPublics);i++){
         pageNumbers.push(i)
     }
     return(
         <div className={style.container}>
+            <button className={style.pag} onClick={()=>previusPage()} >🡸</button>
             {
+                
                 pageNumbers.map((elem,index)=>{
                     if(elem==currentPage){
                         return(
@@ -18,6 +20,7 @@ const Paginado=({nroPublics,totalPosts,changePage,currentPage})=>{
                     )
                 })
             }
+            <button className={style.pag} onClick={()=>nextPage() }>🡺</button>
         </div>
     )
 }

@@ -6,6 +6,7 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 1rem;
     height: 800px;
+    background-color: rgba(236, 238, 236, 0.864);
 }
 .section2 img{
     width: 500px;

@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {GETALLPOKEMONS,SEARCHPOKEMON,GETPOKEMONDETAIL, GETALLTYPES, FILTERTYPE, FILTERORIGIN, ALPHABETICALORDER, ATACKORDER} from './actions-type'
+import {GETALLPOKEMONS,SEARCHPOKEMON,GETPOKEMONDETAIL, GETALLTYPES, FILTERTYPE, FILTERORIGIN, ALPHABETICALORDER, ATACKORDER, CREATEPOKEMON, ISFIRSTMOUNT, DELETEDETAIL, RESTOREAUX} from './actions-type'
 
 export const getAllPokemons=()=>{
     const endpoint='http://localhost:3001/pokemons/'
@@ -11,7 +11,7 @@ export const getAllPokemons=()=>{
                 payload:data
             })
         } catch (error) {
-            console.log(error)
+            alert(error.response.data.error)
         }
     }
 }
@@ -37,6 +37,21 @@ export const getPokemonDetail=(id)=>{
             return dispatch({
                 type:GETPOKEMONDETAIL,
                 payload:data
+            })
+        } catch (error) {
+            alert(error.response.data.error)
+        }
+    }
+}
+export const createPokemon=(pokemon)=>{
+    const endpoint=`http://localhost:3001/pokemons`
+    return async (dispatch)=>{
+        try {
+            const {data}= await axios.post(endpoint,pokemon);
+            alert(data.message);
+            return dispatch({
+                type:CREATEPOKEMON,
+                payload:data.data
             })
         } catch (error) {
             alert(error.response.data.error)
@@ -82,3 +97,20 @@ export const atackOrder=(order)=>{
         payload:order
     }
 }
+export const deleteDetail=()=>{
+    return{
+        type:DELETEDETAIL
+    }
+}
+export const restoreAux=()=>{
+    return{
+        type:RESTOREAUX
+    }
+}
+export const firstMountHome=()=>{
+    return{
+        type:ISFIRSTMOUNT
+    }
+}
+
+

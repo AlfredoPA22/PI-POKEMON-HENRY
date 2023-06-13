@@ -1,6 +1,10 @@
 .body{
     display: grid;
     grid-template-columns: 1fr;
+    background-image: url('../utils//fondoDetail2.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
 }
 
 .container{
@@ -22,6 +26,7 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 1rem;
     height: 800px;
+    background-color: rgba(236, 238, 236, 0.571);
 }
 .sectionImage img{
     width: 500px;
@@ -35,10 +40,11 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 1rem;
     height: 800px;
+    background-color: rgba(236, 238, 236, 0.571);
 }
 .details{
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 2fr 4fr 1fr;
     align-items:center;
     justify-content: center;
     height: 600px;
@@ -54,10 +60,10 @@
 } */
 .details input[type="range"]{
     -webkit-appearance: none;
-    width: 300px;
+    width: 400px;
     height: 20px;
     border-radius: 15px;
-    background-color: #b6e8d5;
+    background-color: #f6f6f68b;
     outline: none;
     overflow: hidden;
 }
@@ -66,9 +72,9 @@
     width: 20px;
     height: 20px;
     border-radius: 15px;
-    background-color: #0cab6e;
+    background-color: #00a63d;
     border-radius: 10px;
-    box-shadow: -350px 0px 0px 340px #0cab6e;
+    box-shadow: -350px 0px 0px 340px #00a63d;
 }
 
 .typeSection{
@@ -89,4 +95,16 @@
     border: 2px solid;
     border-radius: 60px;
     margin: 1rem;
+}
+.containerHab{
+    display: flex;
+    align-items: center;
+}
+.containerHab img{
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+}
+.containerHab h2{
+    margin: 10px;
 }

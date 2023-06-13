@@ -19,6 +19,7 @@ import dragon from '../card/utils/typesImage/dragon.png'
 import unknown from '../card/utils/typesImage/normal.png'
 import shadow from '../card/utils/typesImage/normal.png'
 import flying from '../card/utils/typesImage/flying.png'
+import imgDefault from '..//utils/default6.png'
 import { NavLink } from "react-router-dom"
 const Card=({info})=>{
     return(
@@ -28,7 +29,7 @@ const Card=({info})=>{
                 <h2>{info.Nombre}</h2>
             </section>
             
-            <img src={info.Imagen} alt={info.Nombre} width='200px' height='200px'/>
+            <img src={info.Imagen?info.Imagen:imgDefault} alt={info.Nombre} width='200px' height='200px'/>
             <section className={style.tipos}>
             {info.Tipo?.map((elem,index)=>{
                 return(

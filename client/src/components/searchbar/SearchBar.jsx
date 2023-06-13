@@ -11,7 +11,7 @@ const SearchBar=({handlerSearch})=>{
     }
     return(
         <>
-            <input className={style.input} type="text" value={value} onChange={handleChange} placeholder='Buscar' />
+            <input className={style.input}  onChange={handleChange} value={value} name='Search' type="text" placeholder='Buscar' />
             <ButtonAcept action={handlerSearch} value={value} text='Search'/>
         </>
     )

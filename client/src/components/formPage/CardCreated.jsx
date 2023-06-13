@@ -20,14 +20,14 @@ import dragon from '../card/utils/typesImage/dragon.png'
 import unknown from '../card/utils/typesImage/normal.png'
 import shadow from '../card/utils/typesImage/normal.png'
 import flying from '../card/utils/typesImage/flying.png'
-import imgDefault from './utils/default.jpg'
+import imgDefault from '../utils/default6.png'
 import atackImage from './utils/atack.png'
 import defenseImage from './utils/defense.png'
 import speedImage from './utils/speed.png'
 import heightImage from './utils/height.png'
 import weightImage from './utils/weight.png'
 import hpImage from './utils/hp.png'
-const CardCreated=({data,types})=>{
+const CardCreated=({data,types,validations})=>{
     return(
         <div className={style.cardContainer}>
             <header className={style.title}><h1>Card Preview</h1></header>
@@ -43,7 +43,7 @@ const CardCreated=({data,types})=>{
                     </section>
                     <section className={style.section2}> 
                         <h2>{data.Nombre}</h2>
-                        <img src={data.Imagen?data.Imagen:imgDefault} alt={data.Nombre}/>
+                        <img src={!validations.image?data.Imagen:imgDefault} alt={data.Nombre}/>
                     </section>
                     <section className={style.sectionSpec}>
                         <img src={hpImage} alt={data.Vida}/>

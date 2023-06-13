@@ -1,10 +1,11 @@
-import { GETALLPOKEMONS,SEARCHPOKEMON,GETPOKEMONDETAIL,GETALLTYPES,FILTERTYPE,FILTERORIGIN, ALPHABETICALORDER, ATACKORDER } from "./actions-type";
+import { GETALLPOKEMONS,SEARCHPOKEMON,GETPOKEMONDETAIL,GETALLTYPES,FILTERTYPE,FILTERORIGIN, ALPHABETICALORDER, ATACKORDER, CREATEPOKEMON, ISFIRSTMOUNT, DELETEDETAIL, RESTOREAUX} from "./actions-type";
 
 const initialState={
     allPokemons:[],
     auxPokemons:[],
     pokemonDetail:{},
-    allTypes:[]
+    allTypes:[],
+    homeMount:true
 }
 
 const reducer=(state=initialState,actions)=>{
@@ -78,6 +79,28 @@ const reducer=(state=initialState,actions)=>{
                 ...state,
                 auxPokemons:atackOrder
             }
+        case CREATEPOKEMON:
+            return{
+                ...state,
+                allPokemons:[...state.allPokemons,actions.payload],
+                auxPokemons:[actions.payload,...state.allPokemons]
+            }
+        case DELETEDETAIL:
+            return{
+                ...state,
+                pokemonDetail:{}
+            }
+        case RESTOREAUX:
+            return{
+                ...state,
+                auxPokemons:state.allPokemons
+            }
+        case ISFIRSTMOUNT:
+            return{
+                ...state,
+                homeMount:false
+            }
+        
         default :
             return {...state}
     }

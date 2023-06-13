@@ -4,10 +4,13 @@
     background-repeat: none; */
     display: grid;
     grid-template-columns: 1fr;
+    background-image: url('../utils/back2.png');
+    background-size: cover;
+    background-position: center;
 }
 
 .nav{
-    background-color:#FFCB05;
+    background-color: #2a61a599;
     height: 100px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -15,7 +18,7 @@
     justify-content: center;
 }
 .menu{
-    background-color:#3D7DCA;
+    background-color:#f6d91f00;
     height: 70px;
     display: grid;
     grid-template-columns: repeat(3,1fr);

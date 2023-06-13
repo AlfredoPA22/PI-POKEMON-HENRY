@@ -2,8 +2,8 @@ import style from './Menu.module.css';
 import ButtonAcept from '../buttons/ButtonAcept';
 import { useDispatch,useSelector } from 'react-redux';
 import { useEffect,useState } from 'react';
-import { getAllTypes,filterType,filterOrigin,alphabeticalOrder, atackOrder } from '../../redux/actions';
-const Menu=({getAll,changePage})=>{
+import {filterType,filterOrigin,alphabeticalOrder, atackOrder, restoreAux } from '../../redux/actions';
+const Menu=({changePage})=>{
     const types=useSelector((state)=>state.allTypes);
     const dispatch= useDispatch();
     const [selectFilterType,setSelectFilterType]=useState('');
@@ -41,11 +41,9 @@ const Menu=({getAll,changePage})=>{
         setSelectFilterOrigin('');
         setSelectOrderAlpha('');
         setSelectOrderAtack('');
-        getAll();
+        dispatch(restoreAux());
     }
-useEffect(async()=>{
-   await dispatch(getAllTypes());
-},[])
+    
     return(
         <>
             <section className={style.reset}><ButtonAcept action={resetAll} text='Reset All'/></section>

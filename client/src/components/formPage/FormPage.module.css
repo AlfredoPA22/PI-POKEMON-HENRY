@@ -1,3 +1,11 @@
+.container{
+    background-image: url('../utils//fondoDetail2.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+
 .generalContainer{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -5,4 +13,6 @@
     justify-content: center;
     gap: 1rem;
     margin: 1rem;
+    
 }
+

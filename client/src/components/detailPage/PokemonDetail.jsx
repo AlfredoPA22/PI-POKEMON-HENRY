@@ -1,8 +1,8 @@
 import style from './PokemonDetail.module.css'
 import { useEffect,useState } from 'react';
-import { useParams,NavLink,useNavigate} from 'react-router-dom';
+import { useParams,useNavigate} from 'react-router-dom';
 import { useDispatch ,useSelector} from 'react-redux';
-import { getPokemonDetail } from '../../redux/actions';
+import { getPokemonDetail,deleteDetail } from '../../redux/actions';
 import NavBarAlter from '../navbar/NavBarAlter';
 
 import imgLoading from '../homePage/utils/Loading.gif'
@@ -26,8 +26,14 @@ import dragon from '../card/utils/typesImage/dragon.png'
 import unknown from '../card/utils/typesImage/normal.png'
 import shadow from '../card/utils/typesImage/normal.png'
 import flying from '../card/utils/typesImage/flying.png'
-import imgDefault from './utils/default.png'
+import imgDefault from '../utils/default6.png'
 
+import hpImage from '../formPage/utils/hp.png'
+import atackImage from '../formPage/utils/atack.png'
+import defenseImage from '../formPage/utils/defense.png'
+import heightImage from '../formPage/utils/height.png'
+import weightImage from '../formPage/utils/weight.png'
+import speedImage from '../formPage/utils/speed.png'
 const PokemonDetail=()=>{
     const {id}=useParams();
     const dispatch=useDispatch();
@@ -35,9 +41,15 @@ const PokemonDetail=()=>{
     const [loader,setLoader]=useState(true)
     const detail=useSelector((state)=>state.pokemonDetail)
 
-useEffect(async()=>{
-    await dispatch(getPokemonDetail(id))
-    setLoader(false)
+useEffect(()=>{
+    const fetchData = async () => {
+        await dispatch(getPokemonDetail(id));
+        setLoader(false);
+    };
+    fetchData();
+    return()=>{
+        dispatch(deleteDetail())
+    };
 },[])
     return(
         <>
@@ -46,8 +58,8 @@ useEffect(async()=>{
                 <NavBarAlter/>
             <div className={style.container}>
                 <section className={style.sectionImage}>
-                    <h1>#{detail.ID} {detail.Nombre}</h1>
-                    <img src={detail.Imagen} alt={imgDefault} />
+                    <h1>{detail.Nombre}</h1>
+                    <img src={detail.Imagen?detail.Imagen:imgDefault} alt={imgDefault} />
                     <section className={style.tipos}>   
                         {detail.Tipo?.map((elem,index)=>{
                             return(
@@ -81,22 +93,43 @@ useEffect(async()=>{
                 <section className={style.sectionDetails}>
                     <h1>Details</h1>
                     <div className={style.details}>
-                        <h2>Hp:</h2>
+                        <div className={style.containerHab}>
+                            <img src={hpImage} alt="hp" />
+                            <h2>Hp:</h2>
+                        </div>
                         <input className={style.range} type="range" min='0' max='100' value={detail.Vida} readOnly/>
                         <h2>{detail.Vida}</h2>
-                        <h2>Attack: </h2>
+                        <div className={style.containerHab}>
+                            <img src={atackImage} alt="atack" />
+                            <h2>Attack: </h2>
+                        </div>
                         <input className={style.range} type="range" min='0' max='100' value={detail.Ataque} readOnly/>
                         <h2>{detail.Ataque}</h2>
-                        <h2>Defense: </h2>
+                        <div className={style.containerHab}>
+                            <img src={defenseImage} alt="defense" />
+                            <h2>Defense: </h2>
+                        </div>
                         <input className={style.range} type="range" min='0' max='100' value={detail.Defensa} readOnly/>
                         <h2>{detail.Defensa}</h2>
-                        <h2>Speed: </h2>
+                        <div className={style.containerHab}>
+                            <img src={speedImage} alt="speed" />
+                            <h2>Speed: </h2>
+                        </div>
+                        
                         <input className={style.range} type="range" min='0' max='100' value={detail.Velocidad} readOnly/>
                         <h2>{detail.Velocidad}</h2>
-                        <h2>height: </h2>
+                        <div className={style.containerHab}>
+                            <img src={heightImage} alt="height" />
+                            <h2>height: </h2>
+                        </div>
+                       
                         <input className={style.range} type="range" min='0' max='100' value={detail.Altura} readOnly/>
                         <h2>{detail.Altura}</h2>
-                        <h2>weight: </h2>
+                        <div className={style.containerHab}>
+                            <img src={weightImage} alt="weight" />
+                            <h2>weight: </h2>
+                        </div>
+
                         <input className={style.range} type="range" min='0' max='100' value={detail.Peso} readOnly/>
                         <h2>{detail.Peso}</h2>
                     </div>             
